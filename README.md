@@ -4,7 +4,7 @@ Simple yet robust JavaScript interpreter based on Qt5. Turn JavaScript into a ge
 
 # Usage
 ```
-ScriptMauzer.exe Script.js
+./ScriptMauzer Script.js
 ```
 # License
 GPL (https://en.wikipedia.org/wiki/GNU_General_Public_License)
