@@ -34,3 +34,6 @@ var object = {
 /*-- Save HTML file using main.html as a template. ----*/
 save('index.html',parser.applyTemplate('templates/main.html',object));
 ```
+
+
+https://stackoverflow.com/questions/68048292/converting-an-avframe-to-qimage-with-conversion-of-pixel-format
