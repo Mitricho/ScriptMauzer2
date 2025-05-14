@@ -262,8 +262,8 @@ end:
 ```
 
 
-*Explanation of the C++ Code.
-***The provided C++ code snippet consists of three main components:
+# Explanation of the C++ Code.
+## The provided C++ code snippet consists of three main components:
 
 ```
 Static Variable Declarations:
