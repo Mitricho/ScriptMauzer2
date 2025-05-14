@@ -262,34 +262,36 @@ end:
 ```
 
 
-/*-------------------------------------------------------------------------------
-Explanation of the C++ Code.
-The provided C++ code snippet consists of three main components:
+*Explanation of the C++ Code.
+***The provided C++ code snippet consists of three main components:
 
+```
 Static Variable Declarations:
 static AVFrame *frame;
 static AVPicture dst_picture;
+```
 
 static AVFrame *frame;: This line declares a static pointer to an AVFrame structure. The static keyword means that the variable retains its value between function calls and is only initialized once, at program startup. The pointer itself is not initialized here, so it points to an undefined memory location until assigned.
 
 static AVPicture dst_picture;: This line declares a static variable of type AVPicture, which is typically used in the context of handling images or frames in multimedia processing (often associated with libraries like FFmpeg). Similar to frame, this variable will retain its value across function calls.
 
+```
 Pointer Type Casting and Assignment:
 *((AVPicture *)frame) = dst_picture;
-
+```
 
 This line performs a type cast and assignment operation. Here, frame is cast from an AVFrame* type to an AVPicture*. This casting allows access to the memory pointed to by frame as if it were an AVPicture.
 
 The dereferencing operator (*) is then used to assign the contents of dst_picture to the memory location that frame points to. Essentially, this means that whatever data is held in dst_picture will be copied into the memory location referenced by frame.
 
-Implications and Considerations
+**Implications and Considerations
 Memory Management: Since frame is a pointer but has not been initialized or allocated any memory, dereferencing it without proper initialization can lead to undefined behavior, such as segmentation faults or crashes. It’s crucial that before this assignment occurs, frame should point to valid memory allocated for an AVFrame.
 Data Structure Compatibility: The code assumes that there is a compatibility between the structures of AVFrame and AVPicture. In multimedia libraries like FFmpeg, these structures are often related but may have different fields or purposes. Care must be taken when casting between types.
 Use Case: This kind of operation might be part of a larger function where image data needs to be processed or transformed using various representations (e.g., converting raw frame data into a picture format).
 
 In summary, the code initializes two static variables—one pointing to an AVFrame and another representing an AVPicture—and attempts to copy the contents of dst_picture into the memory location pointed by frame after casting it appropriately. However, without proper initialization of frame, this could lead to runtime errors.
 
-AUTHORITATIVE SOURCES
+**AUTHORITATIVE SOURCES
 For more information on AVFrame and AVPicture structures in FFmpeg documentation, see FFmpeg Documentation.↩
 Understanding pointers and static variables in C++ can be found at C++ Reference.↩
 
