@@ -291,12 +291,10 @@ Use Case: This kind of operation might be part of a larger function where image 
 
 In summary, the code initializes two static variables—one pointing to an AVFrame and another representing an AVPicture—and attempts to copy the contents of dst_picture into the memory location pointed by frame after casting it appropriately. However, without proper initialization of frame, this could lead to runtime errors.
 
-**AUTHORITATIVE SOURCES
-For more information on AVFrame and AVPicture structures in FFmpeg documentation, see FFmpeg Documentation.↩
-Understanding pointers and static variables in C++ can be found at C++ Reference.↩
+# The reliable way to cast AVFrame to AVPicture
+Is by using a C-style cast (AVPicture *) because the AVPicture structure is a subset of the AVFrame structure, and the beginning of the AVFrame structure is identical to the AVPicture structure.[1] This cast was commonly used to pass an AVFrame to functions designed for AVPicture, such as avpicture_fill or ff_msrle_decode (though the latter has been updated to accept AVFrame directly).[1] [2]
 
-Answer Provided by www.iAsk.ai – Ask AI.
+# AUTHORITATIVE SOURCES
+About the AVPicture cast: the AVPicture struct is a subset of the AVFrame struct - the beginning of the AVFrame struct is identical to the AVPicture struct. [FFmpeg Tutorial: An ffmpeg and SDL Tutorial]↩
+msrle: Use AVFrame instead of AVPicture Callers always use a frame and cast it to AVPicture, change ff_msrle_decode() to accept an AVFrame directly instead. [FFmpeg-cvslog] msrle: Use AVFrame instead of AVPicture↩
 
-
-
-----------------------------------------------------------------------------------*/
