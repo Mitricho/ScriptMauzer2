@@ -40,3 +40,5 @@ https://stackoverflow.com/questions/68048292/converting-an-avframe-to-qimage-wit
 
 https://stackoverflow.com/questions/31445294/output-rtsp-stream-with-ffmpeg#comment135355795_31664470
 
+https://ffmpeg.org/doxygen/trunk/muxing_8c-source.html
+
